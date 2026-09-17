@@ -2,7 +2,8 @@
 
 「chie｜【横浜】肩甲骨はがし・背中美容専門家 / Private salon cherish」へ提案する、営業提案用サンプルLPの制作リポジトリです。
 
-現在は要件定義・デザイン定義・リファレンス・生成素材の整理段階です。Next.jsによるLP実装はまだ開始していません。
+要件定義・デザイン定義・LPコピー・画像素材をもとに、Next.jsでレスポンシブLPを実装しています。
+営業提案用サンプルのため、予約・SNS・地図リンクは公開前の差し替え項目です。
 
 ## ディレクトリ
 
@@ -11,6 +12,8 @@ docs/                         要件定義・デザイン定義・LPコピー・
 references/section-designs/  セクション別リファレンス画像
 public/images/cherish/        掲載可能な加工済み・生成済み画像
 source-images/private/        未加工素材のローカル保管場所（Git管理外）
+src/app/                      LP本体・レイアウト・スタイル
+src/data/                     メニュー・店舗情報・リンク差し替え項目
 ```
 
 ## 画像の取り扱い
@@ -29,4 +32,22 @@ source-images/private/        未加工素材のローカル保管場所（Git�
 - セクションリファレンス7点：格納済み
 - 不足分の生成画像3点：格納済み
 - Instagram素材の加工画像4点：格納済み
-- LP実装：未着手
+- LP実装：初版完成
+- PC / Mobileレスポンシブ対応：確認済み
+- 本番ビルド・Lint：確認済み
+
+## ローカル確認
+
+```bash
+npm install
+npm run dev
+```
+
+ブラウザで `http://localhost:3000` を開きます。
+
+## 公開前の差し替え項目
+
+- LINE・Hot Pepper・Instagram・Google Mapsの正式URL
+- 住所、営業時間、最終受付、料金、メニュー提供状況
+- Heroほか「提案用イメージ」と表示している生成画像
+- Before/After・お客様の声の最終掲載許可

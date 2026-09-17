@@ -1,0 +1,49 @@
+.bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 60;
+    display: block;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 253, 252, 0.96);
+    box-shadow: 0 -10px 30px rgba(63, 35, 41, 0.12);
+    transform: translateY(110%);
+    transition: transform 240ms ease;
+    pointer-events: none;
+  }
+
+  .bar[data-visible="true"] {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .bar a {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: #fffdfc;
+    background: #6e3f46;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .bar a:focus-visible {
+    outline: 3px solid #ffd45a;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px #2e2725;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}

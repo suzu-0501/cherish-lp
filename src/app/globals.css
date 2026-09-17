@@ -1,0 +1,116 @@
+:root {
+  --primary-700: #6e3f46;
+  --primary-800: #563038;
+  --primary-900: #3f2329;
+  --secondary-500: #b9827d;
+  --secondary-200: #e6cfcb;
+  --accent-500: #b58a51;
+  --background-base: #fcf9f5;
+  --background-warm: #f2e8e2;
+  --background-cool: #f5f3f0;
+  --surface: #ffffff;
+  --text-primary: #2e2725;
+  --text-secondary: #625653;
+  --text-on-dark: #fffdfc;
+  --border: #d8c8c0;
+  --border-strong: #9c817c;
+  --focus-inner: #ffd45a;
+  --container-max: 1200px;
+  --page-gutter: clamp(20px, 4vw, 48px);
+  --shadow-photo: 0 18px 54px rgba(63, 35, 41, 0.11);
+  --color-bordeaux: var(--primary-900);
+  --color-rose: var(--secondary-500);
+  --color-rose-dark: var(--primary-700);
+  --color-ivory: var(--background-base);
+  --color-greige: var(--background-warm);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-secondary);
+  --color-border: var(--border);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  background: var(--background-base);
+  font-family: var(--font-sans), "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+a,
+summary {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  color: #fffdfc;
+  background: var(--primary-700);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-inner);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
