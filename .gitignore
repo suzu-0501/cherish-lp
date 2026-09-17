@@ -1,6 +1,7 @@
 # Dependencies and Next.js
 node_modules/
 .next/
+.vercel/
 out/
 dist/
 

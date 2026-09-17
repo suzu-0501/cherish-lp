@@ -1,11 +1,11 @@
 import Image from "next/image";
-import heroImage from "../../public/images/cherish/01_hero_therapist_master.png";
-import treatmentImage from "../../public/images/cherish/02_back_treatment_master.png";
-import chieImage from "../../public/images/cherish/03_chie_consultation.png";
-import afterImage from "../../public/images/cherish/05_case_01_after.png";
-import beforeImage from "../../public/images/cherish/05_case_01_before.png";
-import voiceImage from "../../public/images/cherish/06_voice_01_handwritten.png";
-import reservationImage from "../../public/images/cherish/09_reservation_treatment_detail.png";
+import heroImage from "../../public/images/cherish/01_hero_therapist_master.jpg";
+import treatmentImage from "../../public/images/cherish/02_back_treatment_master.jpg";
+import chieImage from "../../public/images/cherish/03_chie_consultation.jpg";
+import afterImage from "../../public/images/cherish/05_case_01_after.jpg";
+import beforeImage from "../../public/images/cherish/05_case_01_before.jpg";
+import voiceImage from "../../public/images/cherish/06_voice_01_handwritten.jpg";
+import reservationImage from "../../public/images/cherish/09_reservation_treatment_detail.jpg";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { StickyCta } from "@/components/StickyCta";
 import {
@@ -22,6 +22,11 @@ import {
   siteLinks,
 } from "@/data/site-content";
 import styles from "./page.module.css";
+
+const externalLinkProps = {
+  target: "_blank",
+  rel: "noreferrer",
+} as const;
 
 type SectionHeadingProps = {
   overline: string;
@@ -70,6 +75,7 @@ function CtaGroup({ location, inverse = false }: CtaGroupProps) {
       <a
         className={styles.secondaryCta}
         href={siteLinks.hotpepper}
+        {...externalLinkProps}
         data-cta={`cta_${location}_hotpepper`}
       >
         Hot Pepperで空き状況を見る
@@ -354,7 +360,7 @@ export default function Home() {
                   ご用意しています。
                 </h2>
                 <p>
-                  各メニューの詳しい内容・時間・価格は、公式LINE予約サイトでご確認ください。
+                  各メニューの詳しい内容・時間・価格は、Hot Pepperでご確認ください。
                 </p>
               </div>
               <div className={styles.categoryGrid}>
@@ -374,9 +380,10 @@ export default function Home() {
             <a
               className={styles.textLink}
               href={siteLinks.lineReservation}
+              {...externalLinkProps}
               data-cta="cta_other_menu_line"
             >
-              そのほかのメニューをLINE予約サイトで見る
+              Hot Pepperでメニューと空き状況を見る
               <span aria-hidden="true">→</span>
             </a>
             <p className={styles.confirmationNote}>
@@ -582,20 +589,18 @@ export default function Home() {
                   {shopInfo.map(([term, description], index) => (
                     <div key={`${term}-${index}`}>
                       <dt>{term}</dt>
-                      <dd>
-                        {description}
-                        <small>公開前確認</small>
-                      </dd>
+                      <dd>{description}</dd>
                     </div>
                   ))}
                 </dl>
-                <a className={styles.textLink} href={siteLinks.googleMaps}>
+                <a
+                  className={styles.textLink}
+                  href={siteLinks.googleMaps}
+                  {...externalLinkProps}
+                >
                   Google Mapsで場所を確認する
                   <span aria-hidden="true">→</span>
                 </a>
-                <p className={styles.sampleNote}>
-                  提案用サンプルのため地図リンクは未設定です。
-                </p>
               </div>
             </div>
           </div>
@@ -634,7 +639,7 @@ export default function Home() {
                 <li>桜木町駅から徒歩圏</li>
               </ul>
               <p className={styles.sampleNoteInverse}>
-                提案用サンプルのため予約リンクは未設定です。
+                LINEの正式URLは最終確認後に有効化します。空き状況はHot Pepperからご確認ください。
               </p>
             </div>
           </div>
@@ -649,13 +654,13 @@ export default function Home() {
               <strong>cherish</strong>
             </a>
             <div>
-              <p>横浜市中区宮川町</p>
-              <small>店舗情報は公開前に確認します</small>
+              <p>神奈川県横浜市中区宮川町3-93-5 アルバ503</p>
+              <small>完全予約制・不定休</small>
             </div>
             <nav aria-label="フッターナビゲーション">
-              <a href={siteLinks.instagram}>Instagram</a>
+              <a href={siteLinks.instagram} {...externalLinkProps}>Instagram</a>
               <a href={siteLinks.line}>LINE</a>
-              <a href={siteLinks.hotpepper}>Hot Pepper</a>
+              <a href={siteLinks.hotpepper} {...externalLinkProps}>Hot Pepper</a>
             </nav>
           </div>
           <p className={styles.copyright}>© Private salon cherish</p>

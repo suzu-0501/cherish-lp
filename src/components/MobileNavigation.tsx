@@ -73,7 +73,7 @@ export function MobileNavigation() {
             >
               LINEで相談・予約する
             </a>
-            <p className={styles.note}>提案用サンプルのため予約リンクは未設定です。</p>
+            <p className={styles.note}>LINEの正式URLは最終確認後に有効化します。</p>
           </nav>
         </div>
       ) : null}

@@ -1,9 +1,10 @@
 export const siteLinks = {
   line: "#reservation",
-  lineReservation: "#menu-list",
-  hotpepper: "#reservation",
-  instagram: "#profile",
-  googleMaps: "#access",
+  lineReservation: "https://beauty.hotpepper.jp/kr/slnH000745004/",
+  hotpepper: "https://beauty.hotpepper.jp/kr/slnH000745004/",
+  instagram: "https://www.instagram.com/chie_cherish184/",
+  googleMaps:
+    "https://www.google.com/maps/search/?api=1&query=Private%20salon%20cherish%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E4%B8%AD%E5%8C%BA%E5%AE%AE%E5%B7%9D%E7%94%BA3-93-5%20%E3%82%A2%E3%83%AB%E3%83%90503",
 } as const;
 
 export const navigation = [
@@ -163,11 +164,13 @@ export const faqs = [
 ] as const;
 
 export const shopInfo = [
-  ["住所", "横浜市中区宮川町3-93-5 アルバ503"],
-  ["最寄り", "京急 日ノ出町駅 徒歩約2〜3分"],
+  ["住所", "神奈川県横浜市中区宮川町3-93-5 アルバ503"],
+  ["最寄り", "京急 日ノ出町駅 徒歩3分"],
   ["最寄り", "JR 桜木町駅 徒歩約8分"],
   ["営業時間", "10:00〜18:30"],
   ["最終受付", "17:00"],
   ["定休日", "不定休"],
+  ["電話", "070-1306-0184"],
+  ["メール", "saloncherish184@gmail.com"],
   ["営業形態", "完全予約制・個室・1名運営"],
 ] as const;
