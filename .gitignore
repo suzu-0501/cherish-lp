@@ -1,0 +1,24 @@
+# Dependencies and Next.js
+node_modules/
+.next/
+out/
+dist/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local/editor files
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# Raw customer and private source materials
+source-images/private/*
+!source-images/private/.gitkeep
+
+# Temporary image exports
+*.tmp
+*.temp
