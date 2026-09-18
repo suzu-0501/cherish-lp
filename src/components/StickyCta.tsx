@@ -42,7 +42,12 @@ export function StickyCta() {
       aria-hidden={!visible}
       aria-label="固定予約メニュー"
     >
-      <a href={siteLinks.line} tabIndex={visible ? 0 : -1}>
+      <a
+        href={siteLinks.line}
+        target="_blank"
+        rel="noreferrer"
+        tabIndex={visible ? 0 : -1}
+      >
         LINEで相談・予約する
       </a>
     </aside>

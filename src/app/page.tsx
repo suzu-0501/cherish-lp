@@ -67,6 +67,7 @@ function CtaGroup({ location, inverse = false }: CtaGroupProps) {
       <a
         className={styles.primaryCta}
         href={siteLinks.line}
+        {...externalLinkProps}
         data-cta={`cta_${location}_line`}
       >
         LINEで相談・予約する
@@ -102,7 +103,11 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <a className={styles.headerCta} href={siteLinks.line}>
+            <a
+              className={styles.headerCta}
+              href={siteLinks.line}
+              {...externalLinkProps}
+            >
               LINEで相談・予約
             </a>
           </nav>
@@ -360,7 +365,7 @@ export default function Home() {
                   ご用意しています。
                 </h2>
                 <p>
-                  各メニューの詳しい内容・時間・価格は、Hot Pepperでご確認ください。
+                  各メニューの詳しい内容は公式LINEでご相談いただけます。空き状況はHot Pepperでもご確認いただけます。
                 </p>
               </div>
               <div className={styles.categoryGrid}>
@@ -383,7 +388,7 @@ export default function Home() {
               {...externalLinkProps}
               data-cta="cta_other_menu_line"
             >
-              Hot Pepperでメニューと空き状況を見る
+              公式LINEでその他のメニューを相談する
               <span aria-hidden="true">→</span>
             </a>
             <p className={styles.confirmationNote}>
@@ -638,9 +643,6 @@ export default function Home() {
                 <li>日ノ出町駅から徒歩圏</li>
                 <li>桜木町駅から徒歩圏</li>
               </ul>
-              <p className={styles.sampleNoteInverse}>
-                LINEの正式URLは最終確認後に有効化します。空き状況はHot Pepperからご確認ください。
-              </p>
             </div>
           </div>
         </section>
@@ -659,7 +661,7 @@ export default function Home() {
             </div>
             <nav aria-label="フッターナビゲーション">
               <a href={siteLinks.instagram} {...externalLinkProps}>Instagram</a>
-              <a href={siteLinks.line}>LINE</a>
+              <a href={siteLinks.line} {...externalLinkProps}>LINE</a>
               <a href={siteLinks.hotpepper} {...externalLinkProps}>Hot Pepper</a>
             </nav>
           </div>

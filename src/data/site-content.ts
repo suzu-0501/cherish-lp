@@ -1,6 +1,6 @@
 export const siteLinks = {
-  line: "#reservation",
-  lineReservation: "https://beauty.hotpepper.jp/kr/slnH000745004/",
+  line: "https://line.me/R/ti/p/@028oteds",
+  lineReservation: "https://line.me/R/ti/p/@028oteds",
   hotpepper: "https://beauty.hotpepper.jp/kr/slnH000745004/",
   instagram: "https://www.instagram.com/chie_cherish184/",
   googleMaps:

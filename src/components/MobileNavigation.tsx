@@ -69,11 +69,12 @@ export function MobileNavigation() {
             <a
               className={styles.cta}
               href={siteLinks.line}
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setOpen(false)}
             >
               LINEで相談・予約する
             </a>
-            <p className={styles.note}>LINEの正式URLは最終確認後に有効化します。</p>
           </nav>
         </div>
       ) : null}
