@@ -12,7 +12,8 @@ export const navigation = [
   { label: "選ばれる理由", href: "#reasons" },
   { label: "メニュー", href: "#menu" },
   { label: "事例", href: "#case" },
-  { label: "ご予約", href: "#reservation" },
+  { label: "施術者", href: "#profile" },
+  { label: "アクセス", href: "#access" },
 ] as const;
 
 export const concerns = [

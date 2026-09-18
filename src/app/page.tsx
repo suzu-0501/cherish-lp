@@ -1,12 +1,15 @@
 import Image from "next/image";
 import heroImage from "../../public/images/cherish/01_hero_therapist_master.jpg";
+import concernsImage from "../../public/images/cherish/02_concerns_back_view.png";
 import treatmentImage from "../../public/images/cherish/02_back_treatment_master.jpg";
-import chieImage from "../../public/images/cherish/03_chie_consultation.jpg";
+import chieImage from "../../public/images/cherish/03_chie_consultation_v2.png";
 import afterImage from "../../public/images/cherish/05_case_01_after.jpg";
 import beforeImage from "../../public/images/cherish/05_case_01_before.jpg";
 import voiceImage from "../../public/images/cherish/06_voice_01_handwritten.jpg";
 import reservationImage from "../../public/images/cherish/09_reservation_treatment_detail.jpg";
+import salonInteriorImage from "../../public/images/cherish/10_salon_interior_real.png";
 import { MobileNavigation } from "@/components/MobileNavigation";
+import { MotionObserver } from "@/components/MotionObserver";
 import { StickyCta } from "@/components/StickyCta";
 import {
   approachPoints,
@@ -48,6 +51,7 @@ function SectionHeading({
       className={styles.sectionHeading}
       data-align={align}
       data-inverse={inverse}
+      data-reveal="up"
     >
       <p className={styles.overline}>{overline}</p>
       <h2>{title}</h2>
@@ -88,12 +92,16 @@ function CtaGroup({ location, inverse = false }: CtaGroupProps) {
 export default function Home() {
   return (
     <>
+      <MotionObserver />
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <a className={styles.brand} href="#hero" aria-label="ページ上部へ戻る">
-            <span>Private salon</span>
-            <strong>cherish</strong>
-          </a>
+          <div className={styles.headerBrandGroup}>
+            <a className={styles.brand} href="#hero" aria-label="ページ上部へ戻る">
+              <span>Private salon</span>
+              <strong>cherish</strong>
+            </a>
+            <p>横浜・日ノ出町　肩甲骨はがし・背中美容</p>
+          </div>
 
           <nav className={styles.desktopNav} aria-label="メインナビゲーション">
             <ul>
@@ -119,12 +127,21 @@ export default function Home() {
       <main>
         <section className={styles.hero} id="hero" aria-labelledby="hero-title">
           <div className={styles.heroInner}>
-            <div className={styles.heroCopy}>
+            <div className={styles.heroCopy} data-reveal="up">
               <p className={styles.heroOverline}>YOKOHAMA / PRIVATE SALON</p>
               <h1 id="hero-title">
-                肩甲骨から、
-                <br />
-                後ろ姿をもっと好きに。
+                <span className={styles.heroTitleDesktop}>
+                  肩甲骨から、後ろ姿を
+                  <br />
+                  もっと好きに。
+                </span>
+                <span className={styles.heroTitleMobile}>
+                  肩甲骨から、
+                  <br />
+                  後ろ姿をもっと
+                  <br />
+                  好きに。
+                </span>
               </h1>
               <p className={styles.heroLead}>
                 40代からの肩甲骨はがし・背中美容
@@ -135,7 +152,7 @@ export default function Home() {
               </p>
             </div>
 
-            <figure className={styles.heroVisual}>
+            <figure className={styles.heroVisual} data-reveal="scale">
               <Image
                 src={heroImage}
                 alt="施術前にタオルを整えるセラピストの提案用イメージ"
@@ -150,7 +167,7 @@ export default function Home() {
               </figcaption>
             </figure>
 
-            <div className={styles.heroActions}>
+            <div className={styles.heroActions} data-reveal="up" data-reveal-delay="2">
               <CtaGroup location="hero" />
               <p className={styles.ctaNote}>
                 メニューが決まっていなくてもご相談いただけます
@@ -165,20 +182,43 @@ export default function Home() {
 
         <section className={styles.concerns} aria-labelledby="concerns-title">
           <div className={styles.container}>
-            <div className={styles.concernsGrid}>
-              <div className={styles.concernsTitle}>
+            <div className={styles.concernsHeader}>
+              <div className={styles.concernsTitle} data-reveal="left">
                 <p className={styles.overline}>YOUR CONCERNS</p>
                 <h2 id="concerns-title">
-                  こんな後ろ姿の変化、
-                  <br />
-                  気になっていませんか？
+                  <span className={styles.concernsTitleDesktop}>
+                    こんな後ろ姿の変化、
+                    <br />
+                    気になっていませんか？
+                  </span>
+                  <span className={styles.concernsTitleMobile}>
+                    こんな後ろ姿の
+                    <br />
+                    変化、気になって
+                    <br />
+                    いませんか？
+                  </span>
                 </h2>
-                <p>
-                  一人では見えにくい後ろ姿だからこそ、今の状態を確認しながら、
-                  自分に合うケアを考えてみませんか。
-                </p>
               </div>
-              <ol className={styles.concernList}>
+              <p className={styles.concernsIntro} data-reveal="right">
+                一人では見えにくい後ろ姿だからこそ、今の状態を確認しながら、
+                自分に合うケアを考えてみませんか。
+              </p>
+            </div>
+
+            <div className={styles.concernsBody}>
+              <figure className={styles.concernsImage} data-reveal="left">
+                <Image
+                  src={concernsImage}
+                  alt="肩から背中のラインを見せる女性の後ろ姿の提案用イメージ"
+                  fill
+                  sizes="(max-width: 767px) calc(100vw - 40px), 42vw"
+                  className={styles.coverImage}
+                />
+                <figcaption>提案用イメージ</figcaption>
+              </figure>
+
+              <ol className={styles.concernList} data-reveal="right" data-reveal-delay="1">
                 {concerns.map((concern, index) => (
                   <li key={concern}>
                     <span>{String(index + 1).padStart(2, "0")}</span>
@@ -197,7 +237,7 @@ export default function Home() {
         >
           <div className={styles.container}>
             <div className={styles.approachGrid}>
-              <figure className={styles.approachImage}>
+              <figure className={styles.approachImage} data-reveal="left">
                 <Image
                   src={treatmentImage}
                   alt="施術着の上から肩と背中に手を添える施術イメージ"
@@ -208,14 +248,23 @@ export default function Home() {
                 <figcaption>提案用の施術イメージ</figcaption>
               </figure>
 
-              <div className={styles.approachCopy}>
+              <div className={styles.approachCopy} data-reveal="right" data-reveal-delay="1">
                 <SectionHeading
                   overline="BACK CARE"
                   title={
                     <span id="approach-title">
-                      肩甲骨まわりから、
-                      <br />
-                      後ろ姿と向き合う。
+                      <span className={styles.approachTitleDesktop}>
+                        肩甲骨まわりから、
+                        <br />
+                        後ろ姿と向き合う。
+                      </span>
+                      <span className={styles.approachTitleMobile}>
+                        肩甲骨まわり
+                        <br />
+                        から、後ろ姿と
+                        <br />
+                        向き合う。
+                      </span>
                     </span>
                   }
                   intro="cherishでは、肩や背中の見え方だけでなく、その日の状態や気になる部分を伺いながら施術を進めます。"
@@ -243,25 +292,34 @@ export default function Home() {
         >
           <div className={styles.container}>
             <div className={styles.reasonsGrid}>
-              <figure className={styles.reasonsImage}>
+              <figure className={styles.reasonsImage} data-reveal="scale">
                 <Image
                   src={chieImage}
-                  alt="カウンセリングシートへ記入する奈良千恵さん"
+                  alt="カウンセリングシートを持ってお客様へ話しかける奈良千恵さん"
                   fill
                   sizes="(max-width: 767px) calc(100vw - 40px), 42vw"
                   className={styles.coverImage}
                 />
               </figure>
 
-              <div className={styles.reasonsCopy}>
+              <div className={styles.reasonsCopy} data-reveal="up" data-reveal-delay="1">
                 <SectionHeading
                   overline="WHY CHERISH"
                   inverse
                   title={
                     <span id="reasons-title">
-                      身体と美容のことを、
-                      <br />
-                      安心して相談できる場所。
+                      <span className={styles.reasonsTitleDesktop}>
+                        身体と美容のことを、
+                        <br />
+                        安心して相談できる場所。
+                      </span>
+                      <span className={styles.reasonsTitleMobile}>
+                        身体と美容の
+                        <br />
+                        ことを、安心して
+                        <br />
+                        相談できる場所。
+                      </span>
                     </span>
                   }
                 />
@@ -288,7 +346,7 @@ export default function Home() {
         >
           <div className={styles.container}>
             <div className={styles.signatureGrid}>
-              <figure className={styles.signatureImage}>
+              <figure className={styles.signatureImage} data-reveal="left">
                 <Image
                   src={treatmentImage}
                   alt="施術着の上から肩と背中をケアする様子"
@@ -298,7 +356,7 @@ export default function Home() {
                 />
               </figure>
 
-              <div className={styles.signatureCopy}>
+              <div className={styles.signatureCopy} data-reveal="right" data-reveal-delay="1">
                 <p className={styles.overline}>SIGNATURE TREATMENT</p>
                 <h2 id="signature-title">{featuredMenu.name}</h2>
                 <div className={styles.priceBlock}>
@@ -328,15 +386,24 @@ export default function Home() {
               overline="MORE TREATMENTS"
               title={
                 <span id="related-menu-title">
-                  その日の希望に合わせて、
-                  <br />
-                  ほかのケアも選べます。
+                  <span className={styles.relatedTitleDesktop}>
+                    その日の希望に合わせて、
+                    <br />
+                    ほかのケアも選べます。
+                  </span>
+                  <span className={styles.relatedTitleMobile}>
+                    その日の希望に
+                    <br />
+                    合わせて、ほかの
+                    <br />
+                    ケアも選べます。
+                  </span>
                 </span>
               }
               intro="肩甲骨はがしを中心に、温かさを感じながら受けられるメニューや、全身をケアするメニューもご用意しています。"
             />
 
-            <div className={styles.relatedMenus}>
+            <div className={styles.relatedMenus} data-reveal="up" data-reveal-delay="1">
               {relatedMenus.map((menu, index) => (
                 <article className={styles.relatedMenu} key={menu.name}>
                   <span className={styles.menuNumber}>
@@ -356,7 +423,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className={styles.otherCare}>
+            <div className={styles.otherCare} data-reveal="scale">
               <div className={styles.otherCareHeading}>
                 <p className={styles.overline}>OTHER CARE</p>
                 <h2>
@@ -403,16 +470,25 @@ export default function Home() {
               overline="CASE"
               title={
                 <span id="case-title">
-                  後ろ姿と向き合った、
-                  <br />
-                  お客様の事例
+                  <span className={styles.caseTitleDesktop}>
+                    後ろ姿と向き合った、
+                    <br />
+                    お客様の事例
+                  </span>
+                  <span className={styles.caseTitleMobile}>
+                    後ろ姿と
+                    <br />
+                    向き合った、
+                    <br />
+                    お客様の事例
+                  </span>
                 </span>
               }
               intro="誇張せず、同じ大きさの写真で施術前後の見え方をご紹介します。"
             />
 
             <article className={styles.caseStudy}>
-              <div className={styles.comparison}>
+              <div className={styles.comparison} data-reveal="left">
                 <figure>
                   <div className={styles.comparisonImage}>
                     <Image
@@ -439,7 +515,7 @@ export default function Home() {
                 </figure>
               </div>
 
-              <div className={styles.caseCopy}>
+              <div className={styles.caseCopy} data-reveal="right" data-reveal-delay="1">
                 <p className={styles.caseMeta}>30代・施術1回</p>
                 <h3>肩甲骨まわりと後ろ姿が気になっていたお客様</h3>
                 <p>
@@ -453,20 +529,28 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.voice} aria-labelledby="voice-title">
+        <section id="voice" className={styles.voice} aria-labelledby="voice-title">
           <div className={styles.container}>
             <div className={styles.voiceGrid}>
-              <div className={styles.voiceCopy}>
+              <div className={styles.voiceCopy} data-reveal="left">
                 <p className={styles.overline}>VOICE</p>
                 <h2 id="voice-title">
-                  お客様からいただいた、
-                  <br />
-                  うれしいご感想
+                  <span className={styles.voiceTitleDesktop}>
+                    お客様からいただいた、
+                    <br />
+                    うれしいご感想
+                  </span>
+                  <span className={styles.voiceTitleMobile}>
+                    お客様から
+                    <br />
+                    いただいた、
+                    <br />
+                    うれしいご感想
+                  </span>
                 </h2>
                 <blockquote>
-                  「背中がスッキリなってきました!!
-                  <br />
-                  夏までにビキニになりたいー！」
+                  <span>「背中がスッキリなってきました!!</span>
+                  <span>夏までにビキニになりたいー！」</span>
                 </blockquote>
                 <p className={styles.voiceMeta}>
                   30代・4回目のお客様のご感想（原文）
@@ -476,7 +560,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <figure className={styles.voiceImage}>
+              <figure className={styles.voiceImage} data-reveal="scale" data-reveal-delay="1">
                 <Image
                   src={voiceImage}
                   alt="30代・4回目のお客様による手書きの感想"
@@ -492,12 +576,23 @@ export default function Home() {
         <section className={styles.profile} id="profile" aria-labelledby="profile-title">
           <div className={styles.container}>
             <div className={styles.profileGrid}>
-              <div className={styles.profileCopy}>
+              <div className={styles.profileCopy} data-reveal="left">
                 <p className={styles.overline}>ABOUT CHIE</p>
                 <h2 id="profile-title">
-                  一人ひとりのお悩みに、
-                  <br />
-                  私が向き合います。
+                  <span className={styles.profileTitleDesktop}>
+                    一人ひとりの
+                    <br />
+                    お悩みに、
+                    <br />
+                    私が向き合います。
+                  </span>
+                  <span className={styles.profileTitleMobile}>
+                    一人ひとりの
+                    <br />
+                    お悩みに、
+                    <br />
+                    私が向き合います。
+                  </span>
                 </h2>
                 <p className={styles.profileName}>奈良 千恵</p>
                 <p className={styles.profileRole}>
@@ -518,7 +613,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <figure className={styles.profileImage}>
+              <figure className={styles.profileImage} data-reveal="right" data-reveal-delay="1">
                 <Image
                   src={chieImage}
                   alt="カウンセリングシートへ記入する奈良千恵さん"
@@ -531,13 +626,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.flow} aria-labelledby="flow-title">
+        <section id="flow" className={styles.flow} aria-labelledby="flow-title">
           <div className={styles.container}>
             <SectionHeading
               overline="FLOW"
-              title={<span id="flow-title">ご予約から施術までの流れ</span>}
+              title={
+                <span id="flow-title">
+                  <span className={styles.flowTitleLine}>ご予約から、</span>
+                  <span className={styles.flowTitleLine}>施術までの流れ</span>
+                </span>
+              }
             />
-            <ol className={styles.flowList}>
+            <ol className={styles.flowList} data-reveal="up" data-reveal-delay="1">
               {flowSteps.map((step, index) => (
                 <li key={step.title}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
@@ -549,12 +649,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.faq} aria-labelledby="faq-title">
+        <section id="faq" className={styles.faq} aria-labelledby="faq-title">
           <div className={styles.container}>
-            <div className={styles.faqGrid}>
+            <div className={styles.faqGrid} data-reveal="up">
               <SectionHeading
                 overline="FAQ"
-                title={<span id="faq-title">よくあるご質問</span>}
+                title={
+                  <span id="faq-title">
+                    <span className={styles.faqTitleDesktop}>
+                      よくある
+                      <br />
+                      ご質問
+                    </span>
+                    <span className={styles.faqTitleMobile}>よくあるご質問</span>
+                  </span>
+                }
               />
               <div className={styles.faqList}>
                 {faqs.map((faq, index) => (
@@ -577,19 +686,32 @@ export default function Home() {
         <section className={styles.access} id="access" aria-labelledby="access-title">
           <div className={styles.container}>
             <div className={styles.accessGrid}>
-              <div className={styles.accessStatement}>
+              <div className={styles.accessStatement} data-reveal="left">
                 <p className={styles.overline}>ACCESS</p>
-                <h2 id="access-title">Private salon cherish</h2>
+                <h2 id="access-title">
+                  <span className={styles.accessTitleLine}>Private salon</span>
+                  <span className={styles.accessTitleLine}>cherish</span>
+                </h2>
                 <p>
                   横浜・日ノ出町、桜木町から徒歩圏。
                   <br />
                   完全予約制のプライベートサロンです。
                 </p>
+                <figure className={styles.salonAtmosphere}>
+                  <Image
+                    src={salonInteriorImage}
+                    alt="自然光が入るPrivate salon cherishの施術室"
+                    fill
+                    sizes="(max-width: 767px) calc(100vw - 40px), 42vw"
+                    className={styles.coverImage}
+                  />
+                  <figcaption>SALON SPACE</figcaption>
+                </figure>
                 <div className={styles.accessDecoration} aria-hidden="true">
                   <span>YOKOHAMA</span>
                 </div>
               </div>
-              <div className={styles.shopPanel}>
+              <div className={styles.shopPanel} data-reveal="right" data-reveal-delay="1">
                 <dl>
                   {shopInfo.map(([term, description], index) => (
                     <div key={`${term}-${index}`}>
@@ -616,7 +738,7 @@ export default function Home() {
           id="reservation"
           aria-labelledby="reservation-title"
         >
-          <div className={styles.reservationMedia}>
+          <div className={styles.reservationMedia} data-reveal="scale">
             <Image
               src={reservationImage}
               alt="施術ベッドのタオルを整える手元の提案用イメージ"
@@ -626,7 +748,7 @@ export default function Home() {
             />
             <span className={styles.imageNote}>提案用イメージ</span>
           </div>
-          <div className={styles.reservationPanel}>
+          <div className={styles.reservationPanel} data-reveal="right" data-reveal-delay="1">
             <div>
               <p className={styles.overline}>RESERVATION</p>
               <h2 id="reservation-title">
