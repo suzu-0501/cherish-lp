@@ -136,11 +136,9 @@ export default function Home() {
                   もっと好きに。
                 </span>
                 <span className={styles.heroTitleMobile}>
-                  肩甲骨から、
+                  肩甲骨から、後ろ姿を
                   <br />
-                  後ろ姿をもっと
-                  <br />
-                  好きに。
+                  もっと好きに。
                 </span>
               </h1>
               <p className={styles.heroLead}>
@@ -426,10 +424,17 @@ export default function Home() {
             <div className={styles.otherCare} data-reveal="scale">
               <div className={styles.otherCareHeading}>
                 <p className={styles.overline}>OTHER CARE</p>
-                <h2>
-                  お悩みに合わせたメニューも
-                  <br />
-                  ご用意しています。
+                <h2 id="other-care-title">
+                  <span className={styles.otherCareTitleDesktop}>
+                    お悩みに合わせたメニューも
+                    <br />
+                    ご用意しています。
+                  </span>
+                  <span className={styles.otherCareTitleMobile}>
+                    お悩みに合わせたメニューも
+                    <br />
+                    ご用意しています。
+                  </span>
                 </h2>
                 <p>
                   各メニューの詳しい内容は公式LINEでご相談いただけます。空き状況はHot Pepperでもご確認いただけます。
@@ -580,16 +585,12 @@ export default function Home() {
                 <p className={styles.overline}>ABOUT CHIE</p>
                 <h2 id="profile-title">
                   <span className={styles.profileTitleDesktop}>
-                    一人ひとりの
-                    <br />
-                    お悩みに、
+                    一人ひとりのお悩みに、
                     <br />
                     私が向き合います。
                   </span>
                   <span className={styles.profileTitleMobile}>
-                    一人ひとりの
-                    <br />
-                    お悩みに、
+                    一人ひとりのお悩みに、
                     <br />
                     私が向き合います。
                   </span>
@@ -752,9 +753,16 @@ export default function Home() {
             <div>
               <p className={styles.overline}>RESERVATION</p>
               <h2 id="reservation-title">
-                メニューが決まっていなくても、
-                <br />
-                まずはご相談ください。
+                <span className={styles.reservationTitleDesktop}>
+                  メニューが決まっていなくても、
+                  <br />
+                  まずはご相談ください。
+                </span>
+                <span className={styles.reservationTitleMobile}>
+                  メニューが決まっていなくても、
+                  <br />
+                  まずはご相談ください。
+                </span>
               </h2>
               <p className={styles.reservationBody}>
                 肩まわりや後ろ姿のお悩みを伺いながら、ご希望に合うメニューをご案内します。
