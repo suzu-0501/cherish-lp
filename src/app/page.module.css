@@ -44,29 +44,22 @@
   justify-content: space-between;
 }
 
-.brand,
-.footerBrand {
-  display: inline-flex;
-  color: var(--color-bordeaux);
-  flex-direction: column;
-  font-family: var(--font-serif), serif;
-  line-height: 1;
+.brand {
+  display: flex;
+  width: 190px;
+  height: 64px;
+  flex: 0 0 auto;
+  align-items: center;
   text-decoration: none;
 }
 
-.brand span,
-.footerBrand span {
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.brand strong,
-.footerBrand strong {
-  margin-top: 5px;
-  font-size: 25px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+.headerLogo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .desktopNav {
@@ -382,7 +375,7 @@
 }
 
 .heroVisual img {
-  object-position: center 34%;
+  object-position: center center;
 }
 
 .heroVisual::after {
@@ -390,29 +383,6 @@
   inset: 0;
   background: linear-gradient(180deg, transparent 62%, rgb(63 35 41 / 13%));
   content: "";
-}
-
-.proposalBadge {
-  position: absolute;
-  z-index: 1;
-  right: 24px;
-  bottom: 24px;
-  display: flex;
-  padding: 10px 14px;
-  border: 1px solid rgb(255 255 255 / 52%);
-  border-radius: 8px;
-  background: rgb(63 35 41 / 72%);
-  color: #fff;
-  flex-direction: column;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  line-height: 1.5;
-  backdrop-filter: blur(8px);
-}
-
-.proposalBadge span {
-  opacity: 0.72;
-  font-size: 10px;
 }
 
 .heroScroll {
@@ -1533,7 +1503,19 @@
 }
 
 .footerBrand {
-  color: var(--color-ivory);
+  display: flex;
+  width: min(100%, 320px);
+  padding: 8px 12px;
+  border-radius: 16px;
+  background: var(--color-ivory);
+  align-items: center;
+  text-decoration: none;
+}
+
+.footerLogo {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .footerGrid > div:nth-child(2) p {
@@ -1716,13 +1698,9 @@
     padding-top: 64px;
   }
 
-  .brand span {
-    font-size: 9px;
-  }
-
-  .brand strong {
-    margin-top: 3px;
-    font-size: 21px;
+  .brand {
+    width: 150px;
+    height: 56px;
   }
 
   .sectionHeading h2,
@@ -1821,9 +1799,8 @@
     border-radius: 36px 8px 36px 36px;
   }
 
-  .proposalBadge {
-    right: 12px;
-    bottom: 12px;
+  .heroVisual img {
+    object-position: 38% center;
   }
 
   .heroActions {
@@ -2313,6 +2290,10 @@
   .footerGrid {
     gap: 32px;
     grid-template-columns: 1fr;
+  }
+
+  .footerBrand {
+    width: min(100%, 280px);
   }
 
   .footerGrid nav {

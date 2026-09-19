@@ -1,5 +1,4 @@
 import Image from "next/image";
-import heroImage from "../../public/images/cherish/01_hero_therapist_master.jpg";
 import concernsImage from "../../public/images/cherish/02_concerns_back_view.png";
 import treatmentImage from "../../public/images/cherish/02_back_treatment_master.jpg";
 import chieImage from "../../public/images/cherish/03_chie_consultation_v2.png";
@@ -8,6 +7,8 @@ import beforeImage from "../../public/images/cherish/05_case_01_before.jpg";
 import voiceImage from "../../public/images/cherish/06_voice_01_handwritten.jpg";
 import reservationImage from "../../public/images/cherish/09_reservation_treatment_detail.jpg";
 import salonInteriorImage from "../../public/images/cherish/10_salon_interior_real.png";
+import footerLogo from "../../public/images/cherish/cherish_footer_logo.png";
+import headerLogo from "../../public/images/cherish/cherish_header_logo.png";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { MotionObserver } from "@/components/MotionObserver";
 import { StickyCta } from "@/components/StickyCta";
@@ -97,8 +98,13 @@ export default function Home() {
         <div className={styles.headerInner}>
           <div className={styles.headerBrandGroup}>
             <a className={styles.brand} href="#hero" aria-label="ページ上部へ戻る">
-              <span>Private salon</span>
-              <strong>cherish</strong>
+              <Image
+                src={headerLogo}
+                alt="Private salon cherish"
+                className={styles.headerLogo}
+                loading="eager"
+                sizes="(max-width: 767px) 150px, 190px"
+              />
             </a>
             <p>横浜・日ノ出町　肩甲骨はがし・背中美容</p>
           </div>
@@ -152,17 +158,13 @@ export default function Home() {
 
             <figure className={styles.heroVisual} data-reveal="scale">
               <Image
-                src={heroImage}
-                alt="施術前にタオルを整えるセラピストの提案用イメージ"
+                src={salonInteriorImage}
+                alt="自然光が入るPrivate salon cherishの施術室"
                 fill
-                priority
+                loading="eager"
                 sizes="(max-width: 767px) calc(100vw - 40px), 54vw"
                 className={styles.coverImage}
               />
-              <figcaption className={styles.proposalBadge}>
-                提案用イメージ
-                <span>写真差し替え予定</span>
-              </figcaption>
             </figure>
 
             <div className={styles.heroActions} data-reveal="up" data-reveal-delay="2">
@@ -782,8 +784,12 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.footerGrid}>
             <a className={styles.footerBrand} href="#hero">
-              <span>Private salon</span>
-              <strong>cherish</strong>
+              <Image
+                src={footerLogo}
+                alt="Private salon cherish"
+                className={styles.footerLogo}
+                sizes="(max-width: 767px) 280px, 320px"
+              />
             </a>
             <div>
               <p>神奈川県横浜市中区宮川町3-93-5 アルバ503</p>
