@@ -95,6 +95,40 @@ export const relatedMenus = [
   },
 ] as const;
 
+export const femmeCareCampaign = {
+  label: "モニター限定",
+  name: "膣ポーラコース 3回券",
+  duration: "1回30分",
+  price: "49,500円（税込）",
+  regularPrice: "通常価格 66,000円（税込）",
+  note: "回数券の有効期限は1か月以内です。募集状況・適用条件はご予約前にご確認ください。",
+} as const;
+
+export const femmeCareMenus = [
+  {
+    name: "膣ポーラコース",
+    duration: "30分",
+    price: "22,000円（税込）",
+    description:
+      "専用機器を使用するフェムケアメニューです。施術内容や注意事項は、ご予約前にご案内します。",
+  },
+  {
+    name: "デリケートゾーンケア",
+    duration: "30分",
+    price: "16,500円（税込）",
+    option: "オプション：EP導入コース 10分 5,500円（税込）",
+    description:
+      "デリケートゾーンを温めながら、機器を使用してやさしくケアします。",
+  },
+  {
+    name: "骨盤底筋トレーニング",
+    duration: "30分",
+    price: "6,600円（税込）",
+    description:
+      "専用機器を使用するトレーニングメニューです。受け方やご利用時の確認事項は事前にご相談いただけます。",
+  },
+] as const;
+
 export const menuCategories = [
   {
     category: "フェイシャル",

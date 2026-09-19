@@ -17,6 +17,8 @@ import {
   concerns,
   faqs,
   featuredMenu,
+  femmeCareCampaign,
+  femmeCareMenus,
   flowSteps,
   menuCategories,
   navigation,
@@ -422,6 +424,43 @@ export default function Home() {
                 </article>
               ))}
             </div>
+
+            <section className={styles.femmeCare} aria-labelledby="femme-care-title" data-reveal="up">
+              <div className={styles.femmeCareHeading}>
+                <div>
+                  <p className={styles.overline}>FEMME CARE</p>
+                  <h3 id="femme-care-title">フェムケアメニュー</h3>
+                </div>
+                <p>
+                  女性特有のお悩みに寄り添う、女性限定のケアメニューです。
+                  詳しい施術内容はご予約前にご確認ください。
+                </p>
+              </div>
+
+              <div className={styles.femmeCareCampaign}>
+                <span>{femmeCareCampaign.label}</span>
+                <div>
+                  <p>{femmeCareCampaign.name} <small>（{femmeCareCampaign.duration}）</small></p>
+                  <strong>{femmeCareCampaign.price}</strong>
+                  <small>{femmeCareCampaign.regularPrice}</small>
+                </div>
+                <p>{femmeCareCampaign.note}</p>
+              </div>
+
+              <div className={styles.femmeCareGrid}>
+                {femmeCareMenus.map((menu) => (
+                  <article key={menu.name}>
+                    <p className={styles.femmeCareDuration}>{menu.duration}</p>
+                    <h4>{menu.name}</h4>
+                    <p className={styles.femmeCarePrice}>{menu.price}</p>
+                    {"option" in menu ? (
+                      <p className={styles.femmeCareOption}>{menu.option}</p>
+                    ) : null}
+                    <p className={styles.femmeCareDescription}>{menu.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
 
             <div className={styles.otherCare} data-reveal="scale">
               <div className={styles.otherCareHeading}>
