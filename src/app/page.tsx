@@ -782,7 +782,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <div className={styles.container}>
-          <div className={styles.footerGrid}>
+          <div className={styles.footerInner}>
             <a className={styles.footerBrand} href="#hero">
               <Image
                 src={footerLogo}
@@ -791,17 +791,43 @@ export default function Home() {
                 sizes="(max-width: 767px) 280px, 320px"
               />
             </a>
-            <div>
-              <p>神奈川県横浜市中区宮川町3-93-5 アルバ503</p>
-              <small>完全予約制・不定休</small>
+            <p className={styles.footerTagline}>
+              肩甲骨から、後ろ姿をもっと好きに。
+            </p>
+
+            <span className={styles.footerDivider} aria-hidden="true" />
+
+            <div className={styles.footerInformation}>
+              <p className={styles.footerAddress}>
+                神奈川県横浜市中区宮川町3-93-5 アルバ503
+              </p>
+              <p className={styles.footerDetails}>
+                <span>完全予約制・不定休</span>
+                <span className={styles.footerDetailBreak} aria-hidden="true">｜</span>
+                <span>10:00〜18:30</span>
+              </p>
+              <p className={styles.footerReservation}>
+                ご予約・メニューのご相談は、各予約ページより承ります。
+              </p>
             </div>
-            <nav aria-label="フッターナビゲーション">
-              <a href={siteLinks.instagram} {...externalLinkProps}>Instagram</a>
-              <a href={siteLinks.line} {...externalLinkProps}>LINE</a>
-              <a href={siteLinks.hotpepper} {...externalLinkProps}>Hot Pepper</a>
+
+            <nav className={styles.footerLinks} aria-label="公式サイト・予約リンク">
+              <a href={siteLinks.instagram} {...externalLinkProps}>
+                <span>Instagram</span>
+                <small>公式アカウント</small>
+              </a>
+              <a href={siteLinks.line} {...externalLinkProps}>
+                <span>LINE</span>
+                <small>相談・ご予約</small>
+              </a>
+              <a href={siteLinks.hotpepper} {...externalLinkProps}>
+                <span>Hot Pepper</span>
+                <small>空き状況を確認</small>
+              </a>
             </nav>
+
+            <p className={styles.copyright}>© Private salon cherish</p>
           </div>
-          <p className={styles.copyright}>© Private salon cherish</p>
         </div>
       </footer>
 
